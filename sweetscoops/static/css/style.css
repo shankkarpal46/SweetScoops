@@ -84,7 +84,10 @@ header .icons #bars{
 
 section{
     padding: 2rem 9%;
-    position: relative;top: 10px; padding-top: 65px;
+    position: relative;
+    top: 10px; 
+    padding-top: 65px;
+    
 }
 
 section:nth-child(even){
@@ -380,6 +383,7 @@ section:nth-child(even){
     border-radius:50%;
     color: var(--black);
 }
+
 
 .menu .box-container .box .image .fa-heart:hover{
     background:var(--green);

@@ -7,8 +7,8 @@
 {% block content %}
     <h1 style="text-align: center;">This is Menu Page</h1>
 
-    {% for  in  %}
-    
+    {% for icecream in object_list %}
+        {% include 'card.html' with i=icecream only %}
     {% endfor %}
 {% endblock content %}
     

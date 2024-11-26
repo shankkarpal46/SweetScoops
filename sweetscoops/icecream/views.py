@@ -13,3 +13,10 @@ class IcecreamList(ListView):
 class IcecreamDetail(DetailView):
     model = Icecream 
     template_name="icecreams/icecream_detail.html"
+
+
+def search(request):
+    keyword=request.GET.get("keyword")
+    icecreams= Icecream.objects.all().filter(icecream_name__icontains = keyword)
+    return render(request,"dishes.html",{"object_list":icecreams})
+    

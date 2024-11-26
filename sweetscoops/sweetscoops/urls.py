@@ -26,6 +26,8 @@ urlpatterns = [
     path('dishes/',views.dishes,name="dishes"),
     path('about/',views.about,name="about"),
     path('icecream/',include('icecream.urls')),
+    path('login/',views.user_login,name="login"),
+    path('logout/',views.user_logout,name="logout"),
+    path('register/',views.register,name="register"),
 ]
-
-#urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)

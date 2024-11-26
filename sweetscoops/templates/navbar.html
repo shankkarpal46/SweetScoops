@@ -4,17 +4,28 @@
         <a href="#" class="logo"><i class="fa fa-untensils"></i>Sweet Scoops.</a>
         <nav class="navbar">
             <a href="#home" class="active">Home</a>
-            <a href="#dishes">Dishes</a>
+            <a href="#categories">Categories</a>
             <a href="#about">About</a>
-            <a href="#ice">Sweet Scoops</a>
-            <a href="#review">Review</a>
+            <a href="#ice">Top IceCream</a>
+            <a href="#review">Menu</a>
             <a href="#order">Order</a>
         </nav>
 
         <div class="icons">
             <i class="fa-solid fa-bars" id="bars"></i>
-            <i class="fa-solid fa-magnifying-glass" id="search"></i>
-            <a href="#" class="fa-solid fa-heart"></a>
+            <form class="d-flex" action="{% url 'search' %}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name ="keyword">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              {% if request.user.first_name %}
+              <a href="{% url 'login' %}"><button class="btn btn-outline-success" type="submit">{{request.user.first_name}}</button></a>
+              <a href="{% url 'logout' %}"><button class="btn btn-outline-success" type="submit">Logout</button></a> 
+            
+             {% else %}
+              <a href="{% url 'login' %}"><button class="btn btn-outline-success" type="submit">Login</button></a>
+              <a href="{% url 'register' %}"><button class="btn btn-outline-success" type="submit">Register</button></a>
+             {% endif %}
+
             <a href="#" class="fa-solid fa-cart-shopping"></a>
         </div>
     </header>

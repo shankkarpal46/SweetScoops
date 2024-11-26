@@ -6,7 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Icecream Website</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+    <script src="https://kit.fontawesome.com/04c19591e6.js" crossorigin="anonymous"></script>
 
     
 </head>
@@ -24,8 +26,19 @@
 
         <div class="icons">
             <i class="fa-solid fa-bars" id="bars"></i>
-            <i class="fa-solid fa-magnifying-glass" id="search"></i>
-            <a href="#" class="fa-solid fa-heart"></a>
+            <form class="d-flex" action="{% url 'search' %}">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" name ="keyword">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+              </form>
+              {% if request.user.first_name %}
+                <a href="{% url 'login' %}"><button class="btn btn-outline-success" type="submit">{{request.user.first_name}}</button></a>
+                <a href="{% url 'logout' %}"><button class="btn btn-outline-success" type="submit">Logout</button></a> 
+              
+              {% else %}
+                <a href="{% url 'login' %}"><button class="btn btn-outline-success" type="submit">Login</button></a>
+                <a href="{% url 'register' %}"><button class="btn btn-outline-success" type="submit">Register</button></a>
+              {% endif %}
+
             <a href="#" class="fa-solid fa-cart-shopping"></a>
         </div>
     </header>

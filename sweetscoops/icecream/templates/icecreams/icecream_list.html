@@ -1,9 +1,27 @@
 {% extends "base.html" %}
 
-{% block content %} 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
+{% block content %}
+
+
+<section class="menu" id="menu">
+    
+    <h3 class="heading">Our Menu</h3>
+
+    <div class="box-container">
+
+        {% for icecream in object_list %}
+
+            {% include "card.html" with i=icecream %}
+
+        {% endfor %}
+
+    </div>
+</section>
+
+{% endblock content %}
+ 
+{% comment %} <div class="row row-cols-1 row-cols-md-3 g-4">
         {% for icecream in object_list %}
             {% include "card.html" with i=icecream %}
         {% endfor %}
-    </div>
-{% endblock content %}
+    </div>{% endcomment %}
