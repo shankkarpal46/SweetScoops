@@ -1,17 +1,3 @@
-{% comment %} <div class="col">
-    <div class="card">
-      <a href="">
-        <img src="{{i.icecream_image.url}}" class="card-img-top" alt="...">
-      </a>
-      
-      <div class="card-body">
-        <h5 class="card-title">{{i.icecream_name}}</h5>
-        <p class="card-text">{{i.icecream_description}}</p>
-        <p class="card-text">{{i.icecream_price}}</p>
-      </div>
-    </div>
-  </div> {% endcomment %}
-
     <div class="box">
         <div class="image">
           <a href="{% url "icecream-detail" i.id %}">
@@ -21,18 +7,23 @@
           <a href="" class="fa fa-eye"></a>
       </div>
       <div class="content">
-          <div class="stars">
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-              <i class="fa fa-star"></i>
-          </div>
+          
           <h3>{{i.icecream_name}}</h3>
           <p> 
             {{i.icecream_description}}
           </p>
-          <a href="" class="btn">Add to cart</a>
+          
+          <form action="{% url "add-to-cart" i.id %}">
+
+            <button type="button" onclick="updateQuantity(-1,{{i.id}})">-</button>
+  
+            <input type="number" name="quantity" id="quantity{{i.id}}" value="1" min="1" max="10">
+  
+            <button type="button" onclick="updateQuantity(+1,{{i.id}})">+</button>
+            
+            <input class="btn btn-primary" type="submit" value="Add to Cart">
+  
+          </form>
           <span class="price">Rs{{i.icecream_price}}</span>
       </div> 
     </div>

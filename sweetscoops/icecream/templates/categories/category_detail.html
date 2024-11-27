@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<section class="dishes" id="categories">
+    <h1 class="heading">{{category_obj}}</h1>
+    <div class="box-container">
+        {% for icecream in category_obj.icecream_set.all %}
+        {% comment %} <a href="{% url 'category-detail' slug=icecream.category_slug %}" 
+            {{category.category_name}}
+        </a> {% endcomment %}
+        {% include "card.html" with i=icecream%}
+        {% endfor %}
+        
+{% endblock content %}
+

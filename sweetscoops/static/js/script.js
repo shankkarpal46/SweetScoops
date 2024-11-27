@@ -19,9 +19,16 @@ document.querySelectorAll('.top-image').forEach(image_1 =>{
     });
 });
 
+function updateQuantity(operation,productId)
+{
+    const inputBox= document.getElementById("quantity"+productId);
+    inputBox.value=parseInt(inputBox.value)+operation;
+
+}
 
 var swiper = new Swiper('.swiper-container',{
     pagination:{
         el:'.swiper-pagination',
     },
 });
+

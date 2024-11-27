@@ -2,9 +2,10 @@ from django.shortcuts import render,HttpResponseRedirect,HttpResponse
 from django.contrib.auth.forms import UserCreationForm
 from  .form import CustomUserCreationForm
 from django.contrib.auth import authenticate,login,logout
+from icecream.models import Category
 
 def home(request):
-    return render(request,"index.html",{})
+    return render(request,"index.html",{"categories":Category.objects.all()})
 
 def dishes(request):
     return render(request,"dishes.html")
@@ -23,7 +24,7 @@ def user_login(request):
         if user is not None:
             login(request,user)
             print(request.user.first_name)
-            return HttpResponseRedirect("/dishes")
+            return HttpResponseRedirect("/")
         else:
             return render(request,"login.html",{"message":"Log in failed"})
         

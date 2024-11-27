@@ -1,14 +1,15 @@
 from django.db import models
-# from autoslug import AutoSlugField
+from autoslug import AutoSlugField
 
-# Create your models here.
+#Create your models here.
 
-# class Catergory(models.Model):
-#     category_name = models.CharField(max_length=100,null=False)
-#     category_slug = AutoSlugField(populate_from="category_name",unique=True)
+class Category(models.Model):
+    category_name = models.CharField(max_length=100,null=False)
+    category_slug = AutoSlugField(populate_from="category_name",unique=True)
+    category_image = models.ImageField(upload_to="category/",default="")
 
-#     def __str__(self):
-#         return self.category_name
+    def __str__(self):
+        return self.category_name
     
 class Icecream(models.Model):
     icecream_name=models.CharField(max_length=100,null=False)
@@ -17,7 +18,7 @@ class Icecream(models.Model):
     icecream_image=models.ImageField(upload_to="icecreams/")
     #product_brand=models.CharField(max_length=100,default="superpet")
 
-    #category = models.ForeignKey(Catergory,on_delete=models.SET_NULL,null=True)
+    category = models.ForeignKey(Category,on_delete=models.SET_NULL,null=True)
 
     #customManager = ProductCustomManager()
 

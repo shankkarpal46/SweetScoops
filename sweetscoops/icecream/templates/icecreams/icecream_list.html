@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-
+{% load static %}
 {% block content %}
 
 
@@ -19,9 +19,6 @@
 </section>
 
 {% endblock content %}
+<script src="{% static 'js/script.js' %}"></script>
+
  
-{% comment %} <div class="row row-cols-1 row-cols-md-3 g-4">
-        {% for icecream in object_list %}
-            {% include "card.html" with i=icecream %}
-        {% endfor %}
-    </div>{% endcomment %}

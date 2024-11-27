@@ -1,0 +1,5 @@
+<div class="box">
+    <a href="{% url 'category-detail' slug=c.category_slug %}" class="fa fa-eye"></a>
+    <img src="{{c.category_image.url}}" alt="">
+    <h3>{{c.category_name}}</h3>
+</div>

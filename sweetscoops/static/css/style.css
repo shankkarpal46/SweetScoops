@@ -15,7 +15,7 @@
     box-sizing: border-box;
     text-decoration: none;
     outline: none;
-    text-transform: capitalize;
+    /* text-transform:capitalize; */
     transition: all .2s linear;
 }
 
@@ -87,7 +87,7 @@ section{
     position: relative;
     top: 10px; 
     padding-top: 65px;
-    
+        
 }
 
 section:nth-child(even){
@@ -370,7 +370,7 @@ section:nth-child(even){
     object-fit: cover;
 }
 
-.menu .box-container .box .image .fa-heart{
+.menu .box-container .box .image .fa-eye{
     position: absolute;
     top: 2.5rem;
     right: 2.5rem;
@@ -385,7 +385,7 @@ section:nth-child(even){
 }
 
 
-.menu .box-container .box .image .fa-heart:hover{
+.menu .box-container .box .image .fa-eye:hover{
     background:var(--green);
     color: #fff;
 }
