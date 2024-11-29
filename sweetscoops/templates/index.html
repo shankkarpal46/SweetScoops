@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Icecream Website</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/04c19591e6.js" crossorigin="anonymous"></script>
 
@@ -19,8 +19,8 @@
             <a href="#home" class="active">Home</a>
             <a href="#categories">Categories</a>
             <a href="#about">About</a>
-            <a href="#ice">Top IceCream</a>
-            <a href="#review">Menu</a>
+            <a href="#top">Top IceCream</a>
+            <a href="{% url "icecream-list" %}">Menu</a>
             <a href="#order">Order</a>
         </nav>
 
@@ -40,9 +40,9 @@
               {% endif %}
 
             <a href="{% url 'cart' %}" class="fa-solid fa-cart-shopping">
-                {% if count %}
+                {% if count > 0 %}
                     
-                    <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">{{count}}</span>
+                    <span class="badge rounded-pill bg-danger">{{count}}</span>
                 
                 {% endif %}
             </a>
@@ -60,7 +60,7 @@
                         <p>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, cupiditate libero consequatur et natus adipisci. Obcaecati, quia ducimus labore possimus id sed nam nobis magnam, cumque exercitationem perspiciatis nihil quis?
                         </p>
-                        <a href="" class="btn">Order Now</a>
+                        <a href="" class="btn2">Order Now</a>
                     </div>
                     <div class="image">
                         <img src="{% static 'img/gettyimages-157472912-612x612.jpg' %}" alt="">
@@ -73,7 +73,7 @@
                         <p>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, cupiditate libero consequatur et natus adipisci. Obcaecati, quia ducimus labore possimus id sed nam nobis magnam, cumque exercitationem perspiciatis nihil quis?
                         </p>
-                        <a href="" class="btn">Order Now</a>
+                        <a href="" class="btn2">Order Now</a>
                     </div>
                     <div class="image">
                         <img src="{% static 'img/gettyimages-1395380883-612x612.jpg' %}" alt="">
@@ -86,7 +86,7 @@
                         <p>
                             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, cupiditate libero consequatur et natus adipisci. Obcaecati, quia ducimus labore possimus id sed nam nobis magnam, cumque exercitationem perspiciatis nihil quis?
                         </p>
-                        <a href="" class="btn">Order Now</a>
+                        <a href="" class="btn2">Order Now</a>
                     </div>
                     <div class="image">
                         <img src="{% static 'img/gettyimages-936205852-612x612.jpg' %}" alt="">
@@ -101,7 +101,7 @@
     <!-----------------------------------------------------------End of Home--------------------------------------------------------------->
 
     <section class="dishes" id="categories">
-        <h1 class="heading">Popular IceCream</h1>
+        <h1 class="heading">Categories</h1>
         <div class="box-container">
 
             {% for category in categories %}
@@ -120,6 +120,7 @@
         <div class="row">
             <div class="image-container">
                 <div class="small-image">
+                
                     <img src="{% static 'img/gettyimages-1256313433-612x612.jpg' %}" alt="" class = "top-image">
                     <img src="{% static 'img/gettyimages-1395380883-612x612.jpg' %}" alt="" class = "top-image">
                     <img src="{% static 'img/gettyimages-157472912-612x612.jpg' %}" alt="" class = "top-image">
@@ -144,7 +145,7 @@
                     Lorem ipsum dolor sit amet consectetur adipisicing elit. Quam earum laborum hic alias dicta! Cumque aperiam harum at velit, voluptatum fugiat praesentium. Ea accusantium rem unde illo soluta, in quasi!
                 </p>
                 <div class="price">Rs 10<span>Rs 20</span></div>
-                <a href="#" class="btn">add to cart</a>
+                <a href="#" class="btn2">add to cart</a>
             </div>
         </div>
     </section>
@@ -171,7 +172,7 @@
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
                 </p>
-                <a href="" class="btn">Add to cart</a>
+                <a href="" class="btn2">Add to cart</a>
                 <span class="price">Rs 10</span>
             </div>
         </div>
@@ -194,7 +195,7 @@
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
                 </p>
-                <a href="" class="btn">Add to cart</a>
+                <a href="" class="btn2">Add to cart</a>
                 <span class="price">Rs 10</span>
             </div>
         </div>
@@ -217,7 +218,7 @@
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
                 </p>
-                <a href="" class="btn">Add to cart</a>
+                <a href="" class="btn2">Add to cart</a>
                 <span class="price">Rs 10</span>
             </div>
         </div>
@@ -240,7 +241,7 @@
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
                 </p>
-                <a href="" class="btn">Add to cart</a>
+                <a href="" class="btn2">Add to cart</a>
                 <span class="price">Rs 10</span>
             </div>
         </div>
@@ -263,7 +264,7 @@
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
                 </p>
-                <a href="" class="btn">Add to cart</a>
+                <a href="" class="btn2">Add to cart</a>
                 <span class="price">Rs 10</span>
             </div>
         </div>
@@ -286,7 +287,7 @@
                 <p>
                     Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
                 </p>
-                <a href="" class="btn">Add to cart</a>
+                <a href="" class="btn2">Add to cart</a>
                 <span class="price">Rs 10</span>
             </div>
         </div>
@@ -322,7 +323,7 @@
                     <span>24/7 service</span>
                 </div>             
             </div>
-            <a href="" class="btn">Learn more</a>
+            <a href="" class="btn2">Learn more</a>
         </div>
     </div>
 </section>
@@ -330,8 +331,6 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script src="{% static 'js/script.js' %}"></script>
-
-
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <script src="https://kit.fontawesome.com/04c19591e6.js" crossorigin="anonymous"></script>
 <script src="{% static 'js/script.js' %}"></script>

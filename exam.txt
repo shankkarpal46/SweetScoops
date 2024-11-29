@@ -1,0 +1,3 @@
+abstraction
+inheritance 
+what instance class and instance method

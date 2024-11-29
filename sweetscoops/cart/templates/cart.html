@@ -3,75 +3,78 @@
 
 {% block content %}
 <section>
-    <h1>Cart</h1>
-    <h1>Total:{{total}}</h1>
-    
-    {% for cartitem in cartitems %}
-                        <div class="card mb-3" style="max-width: 540px;">
-                           <div class="row g-0">
-
-                             <div class="col-md-4">
-                               <img src="{{cartitem.icecreams.icecream_image.url}}" class="img-fluid rounded-start" alt="...">
-                             </div>
-                             <div class="col-md-8">
-                               <div class="card-body">
-                                 <h5 class="card-title">{{cartitem.icecreams.icecream_name}}</h5>
-                                 <p class="card-text">Quantity :{{cartitem.quantity}}</p>
-                                 <p class="card-text">Price :{{cartitem.icecreams.icecream_price}}</p>
-
-                                 <form action="{% url 'update-cart' cartitem.id %}">
-
-                                    <button type="button" onclick="updateQuantity(-1,{{cartitem.id}})">-</button>
-                          
-                                    <input type="number" name="quantity" id="quantity{{cartitem.id}}" value="{{cartitem.quantity}}" min="1" max="10">
-                          
-                                    <button type="button" onclick="updateQuantity(1,{{cartitem.id}})">+</button>
-                                    
-                                    <input class="btn btn-primary" type="submit" value="update cart">
-                          
-                              </form>
-                          
-                                  <a class="btn btn-danger" href="{% url 'delete-cartitem' cartitem.id %}" role="button">Delete</a>
-    {% endfor %}
-
-
-    {% for cartitem in cartitems %}
-                        
-   
-    {% endfor %}
-        
-</section>
-
-
-  <table class="table">
-  <thead>
-    <tr>
-      <th scope="col">id</th>
-      <th scope="col">Product name</th>
-      <th scope="col">Price</th>
-      <th scope="col">Quantity</th>
-      <th scope="col">Total</th>
-
-    </tr>
-  </thead>
-  <tbody>
+  <h1>Cart</h1>
+  <h1>Total:{{total}}</h1>
+  <hr>
 
   {% for cartitem in cartitems %}
+                <div class="card mb-3" style="max-width: 540px;">
+                   <div class="row g-0">
 
-    <tr>
-      <th scope="row">{{cartitem.icecreams.id}}</th>
-      <td>{{cartitem.icecreams.icecream_name}}</td>
-      <td>{{cartitem.icecreams.icecream_price}}</td>
-      <td>{{cartitem.quantity}}</td>
-      <td>{{cartitem.quantity|multiply:cartitem.icecreams.icecream_price}}</td>
+                     <div class="col-md-4">
+                       <img src="{{cartitem.icecreams.icecream_image.url}}" class="img-fluid rounded-start" alt="...">
+                     </div>
+                     <div class="col-md-8">
+                       <div class="card-body">
+                         <h5 class="card-title">{{cartitem.icecreams.icecream_name}}</h5>
+                         <p class="card-text">Quantity :{{cartitem.quantity}}</p>
+                          <p class="card-text">Price :{{cartitem.icecreams.icecream_price}}</p>
 
-    </tr>
-  {% endfor %}
-   
-  </tbody>
+<form action="{% url 'update-cart' cartitem.id %}">
+
+  <button type="button" onclick="updateQuantity(-1,{{cartitem.id}})">-</button>
+
+  <input type="number" name="quantity" id="quantity{{cartitem.id}}" value="{{cartitem.quantity}}" min="1" max="10">
+
+  <button type="button" onclick="updateQuantity(1,{{cartitem.id}})">+</button>
+  
+  <input class="btn btn-primary" type="submit" value="update cart">
+
+</form>
+
+<a class="btn btn-danger" href="{% url 'delete-cartitem' cartitem.id %}" role="button">Delete</a>
+
+                       </div>
+                     </div>
+                   </div>
+                </div>
+
+  {% endfor%}
+
+
+
+<table class="table">
+<thead>
+<tr>
+<th scope="col">id</th>
+<th scope="col">Product name</th>
+<th scope="col">Price</th>
+<th scope="col">Quantity</th>
+<th scope="col">Total</th>
+
+</tr>
+</thead>
+<tbody>
+
+{% for cartitem in cartitems %}
+
+<tr>
+<th scope="row">{{cartitem.icecreams.id}}</th>
+<td>{{cartitem.icecreams.icecream_name}}</td>
+<td>{{cartitem.icecreams.icecream_price}}</td>
+<td>{{cartitem.quantity}}</td>
+<td>{{cartitem.quantity|multiply:cartitem.icecreams.icecream_price}}</td>
+
+</tr>
+{% endfor %}
+
+
+
+
+</tbody>
 </table>
 
-  <a class="btn btn-primary m-4" href="{% url 'checkout' %}" 
-  role="button">Checkout</a>
+<a class="btn btn-primary m-4" href="{% url 'checkout' %}" 
+role="button">Checkout</a>
 
 {% endblock content %}

@@ -4,7 +4,8 @@
 {% endblock title %}
 
 {% block content %}
-<section class="menu">
+<section>
+  
 <form method = "POST">
     {% csrf_token %}
   <div class="mb-3">
@@ -21,6 +22,45 @@
     <label class="form-check-label" for="exampleCheck1">Check me out</label>
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+</form> 
+
+		{% comment %} <center>
+		<h1>Login Page</h1>
+		<form action = "" method = "get">
+			<div> 		
+				<table>
+					<tr>
+						<td>		
+							<label for="username">Username:</labe;>
+						</td>
+
+						<td>
+							<input type="text" name="username" id=""username">
+						</td>		
+					</tr>
+
+					<tr>
+						<td>		
+							<label for="password">Password:</labe;>
+						</td>
+
+						<td>
+							<input type="password" name="password" id="password">
+						</td>	
+					</tr>
+
+					<tr>
+						<td>
+							<input type="submit" name="submit" value="Login">
+						</td>
+
+						<td>
+							Not yet a member?<a href="">Register</a>
+						</td>
+					</tr>
+				</table>	
+			</div>
+		</form>
+		</center> {% endcomment %}
 </section>
 {% endblock content %}

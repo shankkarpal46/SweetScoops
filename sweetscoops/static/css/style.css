@@ -37,17 +37,20 @@ header{
     align-items: center;
     justify-content: space-between;
     z-index: 1000;
-    box-shadow: var(--box-shadow)
+    box-shadow: var(--box-shadow);
+    text-decoration: none;
 }
 
 header .logo{
     color: var(--black);
     font-size: 2.5rem;
     font-weight: bolder;
+    text-decoration: none;
 }
 
 header .logo i{
     color: var(--green);
+    text-decoration: none;
 }
 
 header .navbar a{
@@ -55,6 +58,7 @@ header .navbar a{
     border-radius: .5rem;
     padding: .5rem 1.5rem;
     color: var(--light-color);
+    text-decoration: none;
 }
 
 header .navbar a.active,
@@ -85,7 +89,7 @@ header .icons #bars{
 section{
     padding: 2rem 9%;
     position: relative;
-    top: 10px; 
+    top:10px; 
     padding-top: 65px;
         
 }
@@ -98,7 +102,7 @@ section:nth-child(even){
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap:2rem;
     padding-top: 9rem; 
     margin-right: 12rem;
 }
@@ -133,7 +137,7 @@ section:nth-child(even){
     line-height: 1.5;
 }
 
-.btn{
+.btn2{
     margin-top: 1rem;
     display: inline-block;
     font-size: 1.7rem;
@@ -231,12 +235,14 @@ section:nth-child(even){
     line-height: 5rem;
     font-size: 2rem;
     color: var(--black);
+    text-decoration:none;
 }
 
 .dishes .box-container .box .fa-heart:hover,
 .dishes .box-container .box .fa-eye:hover{
     color: #fff;
     background: var(--green);
+    text-decoration:none;
 }
 
 .dishes .box-container .box .fa-heart{
@@ -382,6 +388,7 @@ section:nth-child(even){
     background: #fff;
     border-radius:50%;
     color: var(--black);
+    text-decoration:none;
 }
 
 

@@ -24,7 +24,7 @@ def add_to_cart(request,icecreamId):
         cartitem.quantity=cartitem.quantity+quantity
 
     cartitem.save()
-    return HttpResponseRedirect("/icecream/menu")
+    return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
 # @login_required(login_url="/login")
 def display_cart(request):
@@ -114,7 +114,7 @@ def paymentSuccess(request,orderId):
         send_mail(f"[{order.order_id} placed]",
                   "Order placed successfully...",
                   EMAIL_HOST_USER,
-                  ["artilachure@gmail.com","shankkarpal46@gmail.com","priyankavibhute@itvedant.com"],
+                  ["artilachure@gmail.com","shankkarpal46@gmail.com","priyanka.vibhute@itvedant.com"],
                   fail_silently=False)
 
     return render(request,"success.html")

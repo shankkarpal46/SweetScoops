@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Icecream,Category
+from .models import Icecream,Category,Tag
 
 # Register your models here.
 
@@ -12,3 +12,8 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id','category_name','category_slug']
 
 admin.site.register(Category,CategoryAdmin)
+
+class TagAdmin(admin.ModelAdmin):
+    list_display = ['id','tag_name']
+
+admin.site.register(Tag,TagAdmin)

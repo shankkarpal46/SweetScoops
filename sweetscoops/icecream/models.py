@@ -10,7 +10,7 @@ class Category(models.Model):
 
     def __str__(self):
         return self.category_name
-    
+            
 class Icecream(models.Model):
     icecream_name=models.CharField(max_length=100,null=False)
     icecream_description=models.TextField(default="icecream description")
@@ -25,5 +25,6 @@ class Icecream(models.Model):
     def __str__(self):
         return self.icecream_name
     
-
-    
+class Tag(models.Model):
+    tag_name = models.CharField(max_length=100,null=False)
+    icecreams = models.ManyToManyField(Icecream)
