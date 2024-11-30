@@ -3,9 +3,23 @@
 {% block content %}
 
     <div class="box-container">
-        {% include "card.html" with i=icecream %}
-        {{relatedIcecreams}}
+        {% include "card_detail.html" with i=icecream %}
     </div>
     
+
+    {% comment %} <section class="menu" id="menu">
+    
+        <h3 class="heading">Other Icecream</h3>
+    
+        <div class="box-container">
+    
+            {% for icecream in related_icecreams %}
+    
+                {% include "card.html" with i=icecream %}
+    
+            {% endfor %}
+    
+        </div>
+    </section> {% endcomment %}
 {% endblock content %}
 

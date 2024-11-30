@@ -16,6 +16,11 @@ class IcecreamDetail(DetailView):
     model = Icecream 
     template_name="icecreams/icecream_detail.html"
 
+    def get_context_data(self, **kwargs):
+        context=super().get_context_data(**kwargs)
+        context["related_cecreams"]=Icecream.objects.all()
+        return context
+
 
 def search(request):
     keyword=request.GET.get("keyword")
@@ -28,6 +33,11 @@ class CatergoryDetailView(DetailView):
     template_name = "categories/category_detail.html"
     slug_field = "category_slug"
     context_object_name = "category_obj"
+
+    def get_context_data(self,**kwargs):
+        context=super().get_context_data(**kwargs)
+        context["categories"]=Category.objects.all()
+        return context
 
 @method_decorator(staff_member_required,name="dispatch")
 class IcecreamCreateView(CreateView):
@@ -48,11 +58,6 @@ class IcecreamDeleteView(DeleteView):
     model=Icecream
     success_url="/icecream/menu"
     template_name = "icecreams/icecream_confirm_delete.html"
-
-    def get_context_data(self, **kwargs):
-        context=super().get_context_data(**kwargs)
-        context["relatedIcecreams"]=Icecream.objects.all()
-        return context
 
 def Categories(request):
     return render(request,"categories/categories_list.html",{"categories":Category.objects.all()})

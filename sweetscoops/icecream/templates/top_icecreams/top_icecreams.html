@@ -13,7 +13,7 @@
                 {% endfor %}
             </div>
  
-            <div class="    big-image">
+            <div class="big-image">
                 {% for top in top_icecreams %}
                  {% if forloop.first %}
                 <img src="{{top.icecream_image.url}}" alt="" class="big-image1 data-name="{{ top.icecream_name }}" data-description="{{ top.icecream_description }}" data-price="{{ top.icecream_price }}"">
@@ -29,20 +29,19 @@
         {% if forloop.first %}
 
         <div class="content">
-            <h3 id="tag">{{top_icecreams.0.tag_name}}</h3>
             <h3 id="name">{{top_icecreams.0.icecream_name}}</h3>
 
             <p id="description">
                 {{top_icecreams.0.icecream_description}}
             </p>
             <div class="price" id="price"> {{top_icecreams.0.icecream_price}}</div>
-            <form action="">
+            <form action="{% url 'add-to-cart' top_icecreams.0.id %}">
 
-                <button type="button" onclick="updateQuantity(-1,{{i.id}})">-</button>
+                <button type="button" onclick="updateQuantity(-1,{{top_icecreams.0.id}})">-</button>
       
-                <input type="number" name="quantity" id="quantity{{i.id}}" value="1" min="1" max="10">
+                <input type="number" name="quantity" id="quantity{{top_icecreams.0.id}}" value="1" min="1" max="10">
       
-                <button type="button" onclick="updateQuantity(+1,{{i.id}})">+</button>
+                <button type="button" onclick="updateQuantity(+1,{{top_icecreams.0.id}})">+</button>
                 
                 <input class="btn btn-primary" type="submit" value="Add to Cart">
             </form>
@@ -56,67 +55,64 @@
 
 
 <script>
+    
+    document.querySelectorAll('.top-image').forEach(image_1 =>{
+        image_1.addEventListener('click',() =>{
+            var src = image_1.getAttribute('src');
+            document.querySelector('.big-image1').src = src;
+    
+            switch(image_1.id)
+            {
+                case '1':
+                       document.getElementById("name").innerText="{{top_icecreams.0.icecream_name}}";
+                       document.getElementById("description").innerText="{{top_icecreams.0.icecream_description}}";
+                       document.getElementById("price").innerText={{top_icecreams.0.icecream_price}};
+                       document.forms[1].action="{% url 'add-to-cart' top_icecreams.0.id %}"
+                       break;
+    
+                case '2':
+                       document.getElementById("name").innerText="{{top_icecreams.1.icecream_name}}";
+                       document.getElementById("description").innerText="{{top_icecreams.1.icecream_description}}";
+                       document.getElementById("price").innerText={{top_icecreams.1.icecream_price}};
+                       document.forms[1].action="{% url 'add-to-cart' top_icecreams.1.id %}"
+                       break;
+    
+                case '3':
+                       document.getElementById("name").innerText="{{top_icecreams.2.icecream_name}}";
+                       document.getElementById("description").innerText="{{top_icecreams.2.icecream_description}}";
+                       document.getElementById("price").innerText={{top_icecreams.2.icecream_price}};
+                       document.forms[1].action="{% url 'add-to-cart' top_icecreams.2.id %}"
+                       break;
+    
+                case '4':
+                       document.getElementById("name").innerText="{{top_icecreams.3.icecream_name}}";
+                       document.getElementById("description").innerText="{{top_icecreams.3.icecream_description}}";
+                       document.getElementById("price").innerText={{top_icecreams.3.icecream_price}};
+                       document.forms[1].action="{% url 'add-to-cart' top_icecreams.3.id %}"
+                       break;
+                  
+            }
+           
+        });
+    });
+    
+    
+    
+    document.querySelectorAll('.image_details{{top.id}}').forEach(image_1 =>{
+        image_1.addEventListener('click',() =>{
+            var src = image_1.getAttribute('src');
+            var src = image.getAttribute('src');
+            var name = image.getAttribute('data-name');
+            var description = image.getAttribute('data-description');
+            var price = image.getAttribute('data-price');
+            document.querySelector('.big-image1').src = src;
+            document.getElementById('ice-cream-name').innerText = name;
+            document.getElementById('ice-cream-description').innerText = description;
+            document.getElementById('ice-cream-price').innerText = price;
+        });
+    });
 
-document.querySelectorAll('.top-image').forEach(image_1 =>{
-    image_1.addEventListener('click',() =>{
-        var src = image_1.getAttribute('src');
-        document.querySelector('.big-image1').src = src;
-
-        switch(image_1.id)
-        {
-            case '1':
-                   document.getElementById("tag").innerText="{{top_icecreams.0.tag_name}}";
-                   document.getElementById("name").innerText="{{top_icecreams.0.icecream_name}}";
-                   document.getElementById("description").innerText="{{top_icecreams.0.icecream_description}}";
-                   document.getElementById("price").innerText={{top_icecreams.0.icecream_price}};
-                   document.forms[1].action="{% url 'add-to-cart' top_icecreams.0.id %}"
-                   break;
-
-            case '2':
-                   document.getElementById("name").innerText="{{top_icecreams.1.icecream_name}}";
-                   document.getElementById("description").innerText="{{top_icecreams.1.icecream_description}}";
-                   document.getElementById("price").innerText={{top_icecreams.1.icecream_price}};
-                   document.forms[1].action="{% url 'add-to-cart' top_icecreams.1.id %}"
-                   break;
-
-            case '3':
-                   document.getElementById("name").innerText="{{top_icecreams.2.icecream_name}}";
-                   document.getElementById("description").innerText="{{top_icecreams.2.icecream_description}}";
-                   document.getElementById("price").innerText={{top_icecreams.2.icecream_price}};
-                   document.forms[1].action="{% url 'add-to-cart' top_icecreams.2.id %}"
-                   break;
-
-            case '4':
-                   document.getElementById("name").innerText="{{top_icecreams.3.icecream_name}}";
-                   document.getElementById("description").innerText="{{top_icecreams.3.icecream_description}}";
-                   document.getElementById("price").innerText={{top_icecreams.3.icecream_price}};
-                   document.forms[1].action="{% url 'add-to-cart' top_icecreams.3.id %}"
-                   break;
-              
-        }
        
-    });
-});
-
-
-
-document.querySelectorAll('.image_details{{top.id}}').forEach(image_1 =>{
-    image_1.addEventListener('click',() =>{
-        var src = image_1.getAttribute('src');
-        var src = image.getAttribute('src');
-        var name = image.getAttribute('data-name');
-        var description = image.getAttribute('data-description');
-        var price = image.getAttribute('data-price');
-        document.querySelector('.big-image1').src = src;
-        document.getElementById('ice-cream-name').innerText = name;
-        document.getElementById('ice-cream-description').innerText = description;
-        document.getElementById('ice-cream-price').innerText = price;
-    });
-});
-
-
-
-
 </script>
 {% endblock content %}
 
