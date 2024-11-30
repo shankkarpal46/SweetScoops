@@ -46,3 +46,6 @@ def register(request):
             return HttpResponseRedirect("/login")
         return render(request,"register.html",{"form":form})
     
+def carausel(request):
+    icecream_of_year = Tag.objects.get(id=5).icecreams.all()
+    return render(request,"carausel/swiper.html",{"icecream_of_year":icecream_of_year})

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <div class="content">
+        <span>{{t.tag_name}}</span>
+        <h3>{{t.icecreams.icecream_name}}</h3>
+        <p>
+            {{t.icecreams.icecream_description}}
+        </p>
+        <a href="" class="btn2">Order Now</a>
+    </div>
+    <div class="image">
+        <img src="{{t.icecreams.image.url}}" alt="">
+    </div>
+
+{% endblock content %}
+

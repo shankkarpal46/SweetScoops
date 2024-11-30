@@ -2,15 +2,20 @@
 
 {% block content %}
 <section>
+
+        <div class="container border border-dark border-3 p-4 fs-3 mt-5">
              <p> Do you want to delete product??</p>
 
              <p>{{icecream}}</p>
-
+        
+        
              <form method="post">
                      {% csrf_token %}
-                     <input type="submit" value="yes">
+                     <input type="submit" value="YES" class="btn btn-danger p-3 mt-2 w-25">
              </form>
-
+        </div>
+        <div class="container border border-dark border-3 p-4 fs-3 mt-5">
              {% include 'card.html' with i=icecream %}
+        </div>
 </section>
 {% endblock %}

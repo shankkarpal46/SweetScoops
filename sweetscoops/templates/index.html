@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Icecream Website</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static 'img/icecream_10.jfif' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
     <script src="https://kit.fontawesome.com/04c19591e6.js" crossorigin="anonymous"></script>
@@ -56,11 +57,11 @@
                 <div class="swiper-slide slide">
                     <div class="content">
                         <span>Our Special Icecream</span>
-                        <h3>French Icecream</h3>
+                        <h3>6 in One Fresh Green</h3>
                         <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, cupiditate libero consequatur et natus adipisci. Obcaecati, quia ducimus labore possimus id sed nam nobis magnam, cumque exercitationem perspiciatis nihil quis?
+                            It is a combination of six different ice-creams, served 1 scoop each. It comprises of 2 flavours of chocolate ice-creams, a vanilla, butterscotch, strawberry and Choco chip cookie. Garnished with chocolate drum and stick and etc.
                         </p>
-                        <a href="" class="btn2">Order Now</a>
+                        <a href="{% url 'icecream-list' %}" class="btn2">Add to Cart</a>
                     </div>
                     <div class="image">
                         <img src="{% static 'img/gettyimages-157472912-612x612.jpg' %}" alt="">
@@ -69,11 +70,11 @@
                 <div class="swiper-slide slide">
                     <div class="content">
                         <span>Our Special Icecream</span>
-                        <h3>French Icecream</h3>
+                        <h3>French Style Butterscotch</h3>
                         <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, cupiditate libero consequatur et natus adipisci. Obcaecati, quia ducimus labore possimus id sed nam nobis magnam, cumque exercitationem perspiciatis nihil quis?
+                            Butterscotch ice cream is luxuriously thick, creamy, and easy to make with just a few simple ingredients. It starts with a rich buttery brown sugar custard that's folded with whipped cream for a light, mousse-like consistency. This recipe works great with or without an ice cream maker and is delicious topped with homemade butterscotch sauce!
                         </p>
-                        <a href="" class="btn2">Order Now</a>
+                        <a href="{% url "icecream-list" %}" class="btn2">Add to Cart</a>
                     </div>
                     <div class="image">
                         <img src="{% static 'img/gettyimages-1395380883-612x612.jpg' %}" alt="">
@@ -82,11 +83,11 @@
                 <div class="swiper-slide slide">
                     <div class="content">
                         <span>Our Special Icecream</span>
-                        <h3>French Icecream</h3>
+                        <h3>Dark Divine Chocolate</h3>
                         <p>
-                            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Totam, cupiditate libero consequatur et natus adipisci. Obcaecati, quia ducimus labore possimus id sed nam nobis magnam, cumque exercitationem perspiciatis nihil quis?
+                            It is round dark & so deliciously handsome! It is always a crowd pleaser because it knows what you like! Take a walk on the darker side
                         </p>
-                        <a href="" class="btn2">Order Now</a>
+                        <a href="{% url 'icecream-list' %}" class="btn2">Add to Cart</a>
                     </div>
                     <div class="image">
                         <img src="{% static 'img/gettyimages-936205852-612x612.jpg' %}" alt="">
@@ -98,7 +99,7 @@
         </div>
     </section>
 
-    <!-----------------------------------------------------------End of Home--------------------------------------------------------------->
+    <!-----------------------------------------------------------End of  Home--------------------------------------------------------------->
 
     <section class="dishes" id="categories">
         <h1 class="heading">Categories</h1>
@@ -167,150 +168,6 @@
 
 <!--------------------------------------------------------------End of Top------------------------------------->
 
-<section class="menu" id="menu">
-    <h3 class="heading">Our Menu</h3>
-    <div class="box-container">
-        <div class="box">
-            <div class="image">
-                <img src="{% static 'img/gettyimages-1256313433-612x612.jpg' %}" alt="">
-                <a href="" class="fa fa-heart"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h3>delicious ice cream</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
-                </p>
-                <a href="" class="btn2">Add to cart</a>
-                <span class="price">Rs 10</span>
-            </div>
-        </div>
-        <!--box1-->
-
-        <div class="box">
-            <div class="image">
-                <img src="{% static 'img/gettyimages-1395380883-612x612.jpg' %}" alt="">
-                <a href="" class="fa fa-heart"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h3>delicious ice cream</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
-                </p>
-                <a href="" class="btn2">Add to cart</a>
-                <span class="price">Rs 10</span>
-            </div>
-        </div>
-        <!--box2-->
-
-        <div class="box">
-            <div class="image">
-                <img src="{% static 'img/gettyimages-157472912-612x612.jpg' %}" alt="">
-                <a href="" class="fa fa-heart"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h3>delicious ice cream</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
-                </p>
-                <a href="" class="btn2">Add to cart</a>
-                <span class="price">Rs 10</span>
-            </div>
-        </div>
-        <!--box3-->
-
-        <div class="box">
-            <div class="image">
-                <img src="{% static 'img/gettyimages-936205852-612x612.jpg' %}" alt="">
-                <a href="" class="fa fa-heart"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h3>delicious ice cream</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
-                </p>
-                <a href="" class="btn2">Add to cart</a>
-                <span class="price">Rs 10</span>
-            </div>
-        </div>
-        <!--box4-->
-
-        <div class="box">
-            <div class="image">
-                <img src="{% static 'img/gettyimages-1256313433-612x612.jpg' %}" alt="">
-                <a href="" class="fa fa-heart"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h3>delicious ice cream</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
-                </p>
-                <a href="" class="btn2">Add to cart</a>
-                <span class="price">Rs 10</span>
-            </div>
-        </div>
-        <!--box5-->
-
-        <div class="box">
-            <div class="image">
-                <img src="{% static 'img/gettyimages-1395380883-612x612.jpg' %}" alt="">
-                <a href="" class="fa fa-heart"></a>
-            </div>
-            <div class="content">
-                <div class="stars">
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i>
-                </div>
-                <h3>delicious ice cream</h3>
-                <p>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quia, non! Perspiciatis fugit non voluptatem assumenda neque voluptatum eaque necessitatibus tempora, aspernatur nemo nisi illo aperiam culpa obcaecati incidunt voluptas autem.
-                </p>
-                <a href="" class="btn2">Add to cart</a>
-                <span class="price">Rs 10</span>
-            </div>
-        </div>
-        <!--box6-->
-    </div>
-</section>
-
-<!-------------------------------------------End of Menu------------------------------------------------------>
 
 <section class="about" id="about">
     <h3 class="heading">About Us</h3>

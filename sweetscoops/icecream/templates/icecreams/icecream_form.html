@@ -3,6 +3,8 @@
 {% block content %}
 
 <section>
+    
+<div class="container border border-dark border-3 p-4 fs-3 mt-5">
 <form method="post" enctype="multipart/form-data">
     {% csrf_token %}
 
@@ -18,5 +20,6 @@
     <input type="submit">
 
 </form>
+</div>
 </section>
 {% endblock %}

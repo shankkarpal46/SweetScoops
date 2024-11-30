@@ -29,21 +29,21 @@ class CatergoryDetailView(DetailView):
     slug_field = "category_slug"
     context_object_name = "category_obj"
 
-# @method_decorator(staff_member_required,name="dispatch")
+@method_decorator(staff_member_required,name="dispatch")
 class IcecreamCreateView(CreateView):
     model=Icecream
     fields="__all__"
     success_url="/icecream/menu"
     template_name = "icecreams/icecream_form.html"
 
-# @method_decorator(staff_member_required,name="dispatch")
+@method_decorator(staff_member_required,name="dispatch")
 class IcecreamUpdateView(UpdateView):
     model= Icecream
     fields="__all__"
     success_url="/icecream/menu"
     template_name = "icecreams/icecream_form.html"
     
-# @method_decorator(staff_member_required,name="dispatch")
+@method_decorator(staff_member_required,name="dispatch")
 class IcecreamDeleteView(DeleteView):
     model=Icecream
     success_url="/icecream/menu"
