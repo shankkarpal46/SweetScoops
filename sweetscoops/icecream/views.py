@@ -25,7 +25,7 @@ class IcecreamDetail(DetailView):
 def search(request):
     keyword=request.GET.get("keyword")
     icecreams= Icecream.objects.all().filter(icecream_name__icontains = keyword)
-    return render(request,"dishes.html",{"object_list":icecreams})
+    return render(request,"search.html",{"object_list":icecreams})
     
 
 class CatergoryDetailView(DetailView):
