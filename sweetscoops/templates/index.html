@@ -149,11 +149,11 @@
             <div class="price" id="price"> {{top_icecreams.0.icecream_price}}</div>
             <form action="">
 
-                <button type="button" onclick="updateQuantity(-1,{{i.id}})">-</button>
+                <button type="button" onclick="updateQuantity(-1,{{top_icecreams.0.id}})">-</button>
       
-                <input type="number" name="quantity" id="quantity{{i.id}}" value="1" min="1" max="10">
+                <input type="number" name="quantity" id="quantity{{top_icecreams.0.id}}" value="1" min="1" max="10">
       
-                <button type="button" onclick="updateQuantity(+1,{{i.id}})">+</button>
+                <button type="button" onclick="updateQuantity(+1,{{top_icecreams.0.id}})">+</button>
                 
                 <input class="btn btn-primary" type="submit" value="Add to Cart">
             </form>
@@ -407,10 +407,7 @@
             document.getElementById('ice-cream-price').innerText = price;
         });
     });
-    
-    
-    
-    
+
     </script>
 </body>
 </html>

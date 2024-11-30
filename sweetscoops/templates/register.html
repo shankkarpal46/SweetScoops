@@ -5,6 +5,7 @@
 {% endblock title %}
 {% block content %}
 <section>
+    <div class="container border border-dark border-3 p-4 fs-3 mt-5">
     <form method="post">
         {% csrf_token %}
         {% comment %} {{form}} {% endcomment %}
@@ -27,5 +28,6 @@
         
         <input type = "submit" value = "Register">
     </form>
+</div>
     <section class="menu">
-{% endblock content %}  
+{% endblock content %}      

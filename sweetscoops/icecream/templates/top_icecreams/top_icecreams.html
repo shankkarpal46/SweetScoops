@@ -29,6 +29,7 @@
         {% if forloop.first %}
 
         <div class="content">
+            <h3 id="tag">{{top_icecreams.0.tag_name}}</h3>
             <h3 id="name">{{top_icecreams.0.icecream_name}}</h3>
 
             <p id="description">
@@ -64,6 +65,7 @@ document.querySelectorAll('.top-image').forEach(image_1 =>{
         switch(image_1.id)
         {
             case '1':
+                   document.getElementById("tag").innerText="{{top_icecreams.0.tag_name}}";
                    document.getElementById("name").innerText="{{top_icecreams.0.icecream_name}}";
                    document.getElementById("description").innerText="{{top_icecreams.0.icecream_description}}";
                    document.getElementById("price").innerText={{top_icecreams.0.icecream_price}};
