@@ -8,7 +8,7 @@
     <h3 class="heading">Our Menu</h3>
 
     <div class="box-container">
-
+        
         {% for icecream in object_list %}
 
             {% include "card.html" with i=icecream %}
@@ -16,7 +16,7 @@
         {% endfor %}
 
     </div>
-</section>
+</section>  
 
 {% endblock content %}
 <script src="{% static 'js/script.js' %}"></script>

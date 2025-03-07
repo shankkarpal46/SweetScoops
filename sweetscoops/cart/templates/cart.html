@@ -1,13 +1,15 @@
 {% extends 'base.html'%}
 {% load custom_filters %} 
+{% load static %}
 
 {% block content %}
 <section>
-  <h1>Cart</h1>
-  <h1>Total:{{total}}</h1>
-  <hr>
+  {% if cartitems.count %}
+    <h1>Cart</h1>
+    <h1>Total:{{total}}</h1>
+    <hr>
 
-  {% for cartitem in cartitems %}
+    {% for cartitem in cartitems %}
                 <div class="card mb-3" style="max-width: 540px;">
                    <div class="row g-0">
 
@@ -20,19 +22,19 @@
                          <p class="card-text">Quantity :{{cartitem.quantity}}</p>
                           <p class="card-text">Price :{{cartitem.icecreams.icecream_price}}</p>
 
-<form action="{% url 'update-cart' cartitem.id %}">
+  <form action="{% url 'update-cart' cartitem.id %}">
 
-  <button type="button" onclick="updateQuantity(-1,{{cartitem.id}})">-</button>
+    <button type="button" onclick="updateQuantity(-1,{{cartitem.id}})">-</button>
 
-  <input type="number" name="quantity" id="quantity{{cartitem.id}}" value="{{cartitem.quantity}}" min="1" max="10">
+    <input type="number" name="quantity" id="quantity{{cartitem.id}}" value="{{cartitem.quantity}}" min="1" max="10">
 
-  <button type="button" onclick="updateQuantity(1,{{cartitem.id}})">+</button>
+    <button type="button" onclick="updateQuantity(1,{{cartitem.id}})">+</button>
   
-  <input class="btn btn-primary" type="submit" value="update cart">
+    <input class="btn btn-primary" type="submit" value="update cart">
 
-</form>
+  </form>
 
-<a class="btn btn-danger" href="{% url 'delete-cartitem' cartitem.id %}" role="button">Delete</a>
+  <a class="btn btn-danger" href="{% url 'delete-cartitem' cartitem.id %}" role="button">Delete</a>
 
                        </div>
                      </div>
@@ -43,38 +45,43 @@
 
 
 
-<table class="table">
-<thead>
-<tr>
-<th scope="col">id</th>
-<th scope="col">Product name</th>
-<th scope="col">Price</th>
-<th scope="col">Quantity</th>
-<th scope="col">Total</th>
+  <table class="table">
+  <thead>
+  <tr>
+  <th scope="col">id</th>
+  <th scope="col">Product name</th>
+  <th scope="col">Price</th>
+  <th scope="col">Quantity</th>
+  <th scope="col">Total</th>
 
-</tr>
-</thead>
-<tbody>
+  </tr>
+  </thead>
+  <tbody>
 
-{% for cartitem in cartitems %}
+  {% for cartitem in cartitems %}
 
-<tr>
-<th scope="row">{{cartitem.icecreams.id}}</th>
-<td>{{cartitem.icecreams.icecream_name}}</td>
-<td>{{cartitem.icecreams.icecream_price}}</td>
-<td>{{cartitem.quantity}}</td>
-<td>{{cartitem.quantity|multiply:cartitem.icecreams.icecream_price}}</td>
+  <tr>
+  <th scope="row">{{cartitem.icecreams.id}}</th>
+  <td>{{cartitem.icecreams.icecream_name}}</td>
+  <td>{{cartitem.icecreams.icecream_price}}</td>
+  <td>{{cartitem.quantity}}</td>
+  <td>{{cartitem.quantity|multiply:cartitem.icecreams.icecream_price}}</td>
 
-</tr>
-{% endfor %}
-
-
+  </tr>
+  {% endfor %}
 
 
-</tbody>
-</table>
 
-<a class="btn btn-primary m-4" href="{% url 'checkout' %}" 
-role="button">Checkout</a>
 
+  </tbody>
+  </table>
+
+  <a class="btn btn-primary m-4" href="{% url 'checkout' %}" 
+  role="button">Checkout</a>
+
+  {% else %}
+    <h1>Cart is empty</h1>
+    <img src="{% static '/img/cart_empty.png' %}" alt="cart_empty_image">
+
+  {% endif %}
 {% endblock content %}

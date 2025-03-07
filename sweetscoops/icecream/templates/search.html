@@ -1,14 +1,17 @@
 {% extends "base.html" %} 
 
 {% block title %}
-    Menu Page
+    Search Result
 {% endblock title %}
 
 {% block content %}
-    <h1 style="text-align: center;">This is Menu Page</h1>
-
+<section>
+    <h1 style="text-align: center; text-decoration-line: underline;">The search result is:-</h1>
+    <br>
     {% for icecream in object_list %}
         {% include 'card_detail.html' with i=icecream only %}
     {% endfor %}
+
+</section>
 {% endblock content %}
     

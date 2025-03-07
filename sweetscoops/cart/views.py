@@ -7,8 +7,10 @@ from sweetscoops.settings import EMAIL_HOST_USER
 from django.core.mail import send_mail
 import uuid
 import razorpay
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
+@login_required(login_url="/login")
 def add_to_cart(request,icecreamId):
     print("****************",icecreamId,"************************")
     print(request.user)
@@ -26,9 +28,11 @@ def add_to_cart(request,icecreamId):
     cartitem.save()
     return HttpResponseRedirect(request.META.get("HTTP_REFERER"))
 
-# @login_required(login_url="/login")
+@login_required(login_url="/login")
 def display_cart(request):
     currentUser=request.user
+    cart,created=Cart.objects.get_or_create(user=currentUser)  
+    request.session["cart_id"]=cart.id
     cart=Cart.objects.get(user=currentUser)
     cartitems=cart.cartitem_set.all()
     total=0
@@ -36,20 +40,20 @@ def display_cart(request):
         total+=cartitem.quantity*cartitem.icecreams.icecream_price
     return render(request,"cart.html",{"cartitems": cartitems,"total":total})
 
-# @login_required(login_url="/login")
+@login_required(login_url="/login")
 def update_cart(request,cartitemId):
     cartitem=CartItem.objects.get(id=cartitemId)
     cartitem.quantity=request.GET.get("quantity")
     cartitem.save()
     return HttpResponseRedirect("/cart")
 
-# @login_required(login_url="/login")
+@login_required(login_url="/login")
 def delete_cartitem(request,cartitemId):
     cartitem=CartItem.objects.get(id=cartitemId)
     cartitem.delete()
     return HttpResponseRedirect("/cart")
 
-#@login_required(login_url="/login")
+@login_required(login_url="/login")
 def checkout(request):
     if request.method=="GET":
         form=OrderForm()
@@ -83,7 +87,7 @@ def checkout(request):
 
     return HttpResponseRedirect("/cart/payment/"+order.order_id)
 
-#@login_required(login_url="/login")
+@login_required(login_url="/login")
 def payment(request,orderId):
     order=Order.objects.get(order_id=orderId)
     orderitems=order.orderitem_set.all()
@@ -116,5 +120,15 @@ def paymentSuccess(request,orderId):
                   EMAIL_HOST_USER,
                   ["artilachure@gmail.com","shankkarpal46@gmail.com","priyanka.vibhute@itvedant.com"],
                   fail_silently=False)
+        currentUser=request.user
+        cart=Cart.objects.get(user=currentUser)
+        cartitems=cart.cartitem_set.all()
+        total=0
+        for cartitem in  cartitems:
+             cartitem.delete()
+             total+=cartitem.quantity*cartitem.icecreams.icecream_price
+    return render(request,"success.html",{"orderitems":order.orderitem_set.all(),"total":total})
 
-    return render(request,"success.html")
+def orders(request):
+    orders=Order.objects.filter(user=request.user)
+    return render(request,"orders.html",{"orders":orders})

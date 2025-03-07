@@ -1,7 +1,35 @@
 {% extends 'base.html' %}
-
+{% load custom_filters %}
 {% block content %}
 <section>
    <h1>Payment successfull</h1>
+   <h1>Total:{{total}}</h1>
+   <table class="table">
+      <thead>
+      <tr>
+      <th scope="col">id</th>
+      <th scope="col">Product name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Total</th>
+    
+      </tr>
+      </thead>
+      <tbody>
+    
+      {% for orderitem in orderitems %}
+    
+      <tr>
+      <th scope="row">{{orderitem.icecreams.id}}</th>
+      <td>{{orderitem.icecreams.icecream_name}}</td>
+      <td>{{orderitem.icecreams.icecream_price}}</td>
+      <td>{{orderitem.quantity}}</td>
+      <td>{{orderitem.quantity|multiply:orderitem.icecreams.icecream_price}}</td>
+    
+      </tr>
+      {% endfor %}
+    
+      </tbody>
+      </table>
 </section>
 {% endblock %}  

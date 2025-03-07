@@ -1,8 +1,10 @@
 from django.shortcuts import render,HttpResponseRedirect,HttpResponse
 from django.contrib.auth.forms import UserCreationForm
-from  .form import CustomUserCreationForm
+from .forms import CustomUserCreationForm
 from django.contrib.auth import authenticate,login,logout
 from icecream.models import Category,Tag
+from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
+from .forms import CustomUserCreationForm,CustomUserChangeForm
 
 def home(request):
     top_icecreams=Tag.objects.get(id=7).icecreams.all()
@@ -49,3 +51,34 @@ def register(request):
 def carausel(request):
     icecream_of_year = Tag.objects.get(id=5).icecreams.all()
     return render(request,"carausel/swiper.html",{"icecream_of_year":icecream_of_year})
+
+def profile(request): 
+    message = None
+
+    if request.method == 'GET':
+        form = CustomUserChangeForm(instance= request.user)
+        return render(request,"profile.html",{"form":form})
+    
+    if request.method == 'POST':
+        form = CustomUserChangeForm(instance = request.user, data = request.POST)
+    
+        if request.POST:
+            form = CustomUserChangeForm(instance = request.user, data = request.POST)
+
+            if form.is_valid():
+                form.save()
+                message = "User updated successfully!......."
+
+        return render(request,"profile.html",{"form":form,"message":message})
+    
+def changePassword(request):   
+    if request.method == 'GET':
+        form = PasswordChangeForm(user = request.user)
+        return render(request,"change_password.html",{"form":form})
+    
+    if request.method == 'POST':
+        form = PasswordChangeForm(user=request.user)
+        
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect("/login")

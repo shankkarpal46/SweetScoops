@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Updates</title>
+</head>
+<body>
+    <table border="1" padding="5px">
+        <tr>
+            <td>ID</td>
+            <td>Icecream Name</td>
+            <td>Icecream Image</td>
+            <td>Icecream Description</td>
+            <td>Icecream Price</td>
+        </tr>
+
+        <tr>
+            <td>{{icecream.id}}</td>
+            <td>{{icecream.icecream_name}}</td>
+            <td><img src="{{icecream.icecream_image.url}}" alt="Rosebud Image"></td>
+            <td>{{icecream.icecream_description}}</td>
+            <td>{{icecream.icecream_price}}</td>
+        </tr>
+    </table>
+</body>
+</html>

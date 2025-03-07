@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+<section class="menu">
+    {% block content %}    
+
+    {{request.user}}
+
+    {% if message %}
+
+        <div class="alert alert-success" role="alert">
+            {{message}}
+        </div>
+
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+
+        {{form}}
+
+        <input type="submit" value="update">
+        
+    </form>
+{% endblock content %}
+
+</section>

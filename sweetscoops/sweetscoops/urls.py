@@ -32,5 +32,7 @@ urlpatterns = [
     path('register/',views.register,name="register"),
     path('carausel/',views.carausel,name="carausel"),
     path('cart/',include('cart.urls')),
+    path('profile/',views.profile,name="profile"),
+    path('changepassword/',views.changePassword,name="changepassword"),
 ]
 urlpatterns+= static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
