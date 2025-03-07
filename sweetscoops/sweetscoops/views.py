@@ -7,7 +7,8 @@ from django.contrib.auth.forms import UserCreationForm,PasswordChangeForm
 from .forms import CustomUserCreationForm,CustomUserChangeForm
 
 def home(request):
-    top_icecreams=Tag.objects.get(id=7).icecreams.all()
+    top_icecreams=Tag.objects.get(id=1).icecreams.all()
+    # top_icecreams=Tag.objects.get(id=7).icecreams.all()
     return render(request,"index.html",{"categories":Category.objects.all(),"top_icecreams":top_icecreams})
 
 def dishes(request):
