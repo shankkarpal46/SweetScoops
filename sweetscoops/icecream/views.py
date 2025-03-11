@@ -63,6 +63,7 @@ def Categories(request):
     return render(request,"categories/categories_list.html",{"categories":Category.objects.all()})
 
 def TopIceCream(request):
+    #top_icecreams=Tag.objects.get(id=7).icecreams.all()
     top_icecreams=Tag.objects.get(id=7).icecreams.all()
     return render(request,"top_icecreams/top_icecreams.html",{"top_icecreams":top_icecreams})
 
