@@ -146,7 +146,7 @@
             <p id="description">
                 {{top_icecreams.0.icecream_description}}
             </p>
-            <div class="price" id="price"> {{top_icecreams.0.icecream_price}}</div>
+            <div class="price" id="price"> &#8377;{{top_icecreams.0.icecream_price}}</div>
             <form action="{% url 'add-to-cart' top_icecreams.0.id %}">
 
                 <button type="button" onclick="updateQuantity(-1,{{top_icecreams.0.id}})">-</button>
